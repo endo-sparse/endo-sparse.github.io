@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+  <head>
+    <style>
+      .centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.2;
+            /* width: 60%; */
+        }
+        .centered img {
+            margin-right: 10px;
+
+        }
+        .left-align {
+            text-align: left;
+            /* width: 60%; */
+        }
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          color: #333;
+          margin: 0;
+          padding: 20px;
+
+      }
+      .paper {
+          margin-bottom: 20px;
+          background-color: #f9f9f9; /* 浅灰色背景 */
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 20px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          
+      }
+      .new_h3{
+        color: #5c6bc0;
+      }
+      .paper h2 {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #5c6bc0; /* 柔和的蓝紫色 */
+      }
+      .paper p {
+          font-size: 16px;
+          line-height: 1.5;
+          color: #666; /* 柔和的灰色 */
+      }
+      .paper a {
+          color: #5c6bc0; /* 柔和的蓝紫色 */
+          text-decoration: none;
+          transition: color 0.3s ease;
+      }
+      .paper a:hover {
+          color: #3949ab; /* 柔和的深蓝色 */
+          text-decoration: underline;
+      }
+  </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./pic/bitbug_favicon.ico" type="image/x-icon">
+    <title>
+      EndoSparse: Real-Time Sparse View Synthesis of Endoscopic Scenes using Gaussian Splatting
+    </title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/project.css" media="screen" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/iconize.css" />
+    <script src="js/google-code-prettify/prettify.js"></script> -->
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            
+            <h2 class="centered">
+              <div>
+                EndoSparse: Real-Time Sparse View Synthesis of 
+                <br>Endoscopic Scenes using Gaussian Splatting
+              </div>
+          </h2>
+            <h4 style="color:#5a6268;"> MICCAI 2024 </h4>
+            <hr>
+            <h6>
+                <a href="https://xggnet.github.io/" target="_blank">Chenxin Li</a><sup>1</sup>,
+                <a href="https://brandonyfeng.github.io/" target="_blank">Brandon Y. Feng</a><sup>2†</sup>,
+                <a href="https://yifliu3.github.io/" target="_blank">Yifan Liu</a><sup>1</sup>,
+                
+                <a href="https://github.com/LiuHengyu321" target="_blank">Hengyu Liu</a><sup>1</sup>,
+                <a href="https://scholar.google.com/citations?user=AM7gvyUAAAAJ&hl=en" target="_blank">Cheng Wang</a><sup>1</sup>,
+                <a href="https://scholar.google.com/citations?user=fCzlLE4AAAAJ&hl=zh-CN&oi=ao" target="_blank">Weihao Yu</a><sup>1</sup>,
+                <a href="http://www.ee.cuhk.edu.hk/~yxyuan/people/people.htm" target="_blank">Yixuan Yuan</a><sup>1†</sup>
+
+              </h6>
+            <p>
+                <sup>1</sup>The Chinese University of Hong Kong &nbsp;&nbsp;
+                <sup>2</sup>Massachusetts Institute of Technology &nbsp;&nbsp;
+                <sup>†</sup>Corresponding Author &nbsp;&nbsp;
+            </p>
+
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2406.02918" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Paper</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/CUHK-AIM-Group/U-KAN" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i> Code </a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="#bib" role="button"  target="_blank">
+                    <i class="fa fa-database"></i> BibTex </a> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+            <!-- <h6 style="color:#8899a5">  -->
+              <!-- SyncDreamer is able to directly generate multiview consistent images, which allows 3D reconstruction by NeuS or NeRF without SDS loss.  -->
+              <!-- TL;DR:<i>Endora</i> enables the <b>high-fidelity medical video generation</b> on endoscopy scenes and demonstrates the <b>versatile ability through successful applications</b> in video-based disease diagnosis and 3D surgical scene reconstruction. -->
+            <!-- </h6> -->
+
+              <!-- <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="video/teaser.mp4" type="video/mp4">
+              </video> -->
+
+
+
+          <p class="text-left">
+            3D reconstruction of biological tissues from a collection of endoscopic images is a key to unlock various important downstream surgical applications with 3D capabilities. 
+            <br><br>
+  
+            Existing methods employ various advanced neural rendering techniques for photorealistic view synthesis, 
+            but they often struggle to recover accurate 3D representations when only sparse observations are available, 
+            which is usually the case in real-worldclinical scenarios.
+            <br><br>
+            To tackle this sparsity challenge, we propose a frame work leveraging the prior knowledge from multiple foundation models during the reconstruction process, dubbed as EndoSparse. 
+            Experimental results indicate that our proposed strategy significantly improves the geometric and appearance quality under challenging sparse-view conditions, including using only three views. 
+            In rigorous benchmarking experiments against state-of-the-art methods, EndoSparse achieves superior results in terms of accurate geometry, realistic appearance, and rendering efficiency, confirming the robustness to sparse-view limitations in endoscopicreconstruction. 
+            <br><br>
+            EndoSparse signifies a steady step towards the practical deployment of neural 3D reconstruction in real-world clinical scenarios.
+          
+          
+          </p>
+
+        <p class="text-center">
+          <!-- Reverse process of SyncDreamer's multiview diffusion. -->
+          <!-- Sampled realistic endoscopy videos by <i>Endora</i>.  -->
+        </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Highlight</h3>
+            <hr style="margin-top:0px">
+            <!-- <h6 style="color:#8899a5">  -->
+              <!-- SyncDreamer is able to directly generate multiview consistent images, which allows 3D reconstruction by NeuS or NeRF without SDS loss.  -->
+              <!-- TL;DR:<i>Endora</i> enables the <b>high-fidelity medical video generation</b> on endoscopy scenes and demonstrates the <b>versatile ability through successful applications</b> in video-based disease diagnosis and 3D surgical scene reconstruction. -->
+            <!-- </h6> -->
+
+              <!-- <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="video/teaser.mp4" type="video/mp4">
+              </video> -->
+
+          <p class="text-left">
+            <ul style="list-style-position: inside; text-align: left; margin-left: 0x;">
+              <li>We present state-of-the-art results on surgical scene reconstruction from a sparse set of endoscopic views, 
+                achieving and significantly enhancing the practical usage potential of neural reconstruction methods.</li>
+              
+              <li>
+                We demonstrate an effective strategy to instill prior knowledge from a pre-trained 2D generative model to improve and regularize the visual reconstruction quality under sparse observations.
+              </li>
+             
+              <li>
+                We introduce an effective strategy to distill geometric prior knowledge from a visual foundation model that drastically improves the geometric reconstruction quality under sparse observations.
+              </li>
+
+
+            </ul>
+         
+          
+          </p>
+
+        <p class="text-center">
+          <!-- Reverse process of SyncDreamer's multiview diffusion. -->
+          <!-- Sampled realistic endoscopy videos by <i>Endora</i>.  -->
+        </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h2>Network</h2>
+            <hr style="margin-top:0px">
+            <!-- <img src="./pic/ppline.jpg" alt="" width="1000" height="400"> -->
+            <img src="./pic/ppline.jpg" alt="" width="1000" height="350">
+            <br>
+            <br>
+            <div class="text-left">
+              Overview of EndoSparse: Within a 3D-GS scene reconstruction framework, we incorporate vision foundation models as effective regularizers of the 3D scene.
+  We incorporate geometric prior knowledge from Depth-Anything and image appearance priors from Stable Diffusion, which provide valuable guidance signals for optimization at viewpoints without camera coverage.
+            <div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h2>Experimental Results </h2>
+            <hr style="margin-top:0px">
+            <h3 class="new_h3"> Quantitative Results </h3>
+            <img src="./pic/exp_1.jpg" alt="" width="1000" height="600">
+            <h3 class="new_h3"> Qualitative Results </h3>
+            <img src="./pic/exp_2.png" alt="" width="1000" height="400">
+            
+      </div>
+    </div>
+  </section>
+  <br>
+  
+
+  <!-- citing -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code id="bib">@article{li2024endosparse,
+  author    = {Chenxin Li and Brandon Y. Feng and Yifan Liu and Hengyu Liu and Cheng Wang and weihao Yu and Yixuan Yuan},
+  title     = {EndoSparse: Real-Time Sparse View Synthesis of Endoscopic Scenes using Gaussian Splatting},
+  journal   = {arXiv preprint},
+  year      = {2024}
+}</code>
+              </pre>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+  <!-- citing
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+                <code>@article{li2024u,
+                      title={U-KAN Makes Strong Backbone for Medical Image Segmentation and Generation},
+                      author={Li, Chenxin and Liu, Xinyu and Li, Wuyang and Wang, Cheng and Liu, Hengyu and Yuan, Yixuan},
+                      journal={arXiv preprint arXiv:2406.02918},
+                      year={2024}
+                    }
+                  } </code>
+              </pre>
+          <hr>
+      </div>
+    </div>
+  </div> -->
+
+
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Modified from <a href="https://lioryariv.github.io/idr/" target="_blank">this website</a>
+  </footer>
+
+</body>
+</html>
